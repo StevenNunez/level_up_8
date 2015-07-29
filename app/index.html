@@ -30,15 +30,13 @@
           <div ng-show='panel.isCurrentTab(3)'>
             <form action="">
               <div class="preview">
-                preview goes here
+                <b>{{review.rating}} Stars</b> {{review.body}}
               </div>
-              <select name="" id="">
+              <select ng-model="review.rating" name="" id="">
                 <option value="1">1 Star</option>
                 <option value="2">2 Stars</option>
               </select>
-              <textarea name="name" rows="8" cols="40">
-                
-              </textarea>
+              <textarea ng-model="review.body" name="name" rows="8" cols="40"> </textarea>
               <input type="submit" value="Add Review">
             </form>
           </div>
