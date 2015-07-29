@@ -26,12 +26,14 @@
       { shirtName: 'Casual Friday',
           color: 'gray',
           size: 'M',
-          price: '12'
+          price: '12',
+          reviews: []
       },
       { shirtName: 'Portal Based Cleaning',
           color: 'gray',
           size: 'M',
-          price: '12'
+          price: '12',
+          reviews: []
       }
 
   ];

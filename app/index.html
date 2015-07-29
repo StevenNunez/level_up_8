@@ -29,7 +29,11 @@
           </div>
           <div ng-show='panel.isCurrentTab(3)'>
             <form action="">
+              <div ng-repeat="existingReview in product.reviews" >
+                <b>{{existingReview.rating}} Stars</b> {{existingReview.body}}
+              </div>
               <div class="preview">
+                <h1>Preview</h1>
                 <b>{{review.rating}} Stars</b> {{review.body}}
               </div>
               <select ng-model="review.rating" name="" id="">
