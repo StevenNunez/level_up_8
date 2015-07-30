@@ -28,21 +28,23 @@
             <div>Price: {{product.price | currency }}</div>
           </div>
           <div ng-show='panel.isCurrentTab(3)'>
-            <form action="">
-              <div ng-repeat="existingReview in product.reviews" >
-                <b>{{existingReview.rating}} Stars</b> {{existingReview.body}}
-              </div>
-              <div class="preview">
-                <h1>Preview</h1>
-                <b>{{review.rating}} Stars</b> {{review.body}}
-              </div>
-              <select ng-model="review.rating" name="" id="">
-                <option value="1">1 Star</option>
-                <option value="2">2 Stars</option>
-              </select>
-              <textarea ng-model="review.body" name="name" rows="8" cols="40"> </textarea>
-              <input type="submit" value="Add Review">
-            </form>
+            <div ng-controller="ReviewController as reviewCtrl">
+              <form ng-submit='reviewCtrl.addReview(product)'>
+                <div ng-repeat="existingReview in product.reviews" >
+                  <b>{{existingReview.rating}} Stars</b> {{existingReview.body}}
+                </div>
+                <div class="preview">
+                  <h1>Preview</h1>
+                  <b>{{reviewCtrl.review.rating}} Stars</b> {{reviewCtrl.review.body}}
+                </div>
+                <select ng-model="reviewCtrl.review.rating">
+                  <option value="1">1 Star</option>
+                  <option value="2">2 Stars</option>
+                </select>
+                <textarea ng-model="reviewCtrl.review.body" rows="8" cols="40"> </textarea>
+                <input type="submit" value="Add Review">
+              </form>
+          </div>
           </div>
         </div>
       </div>

@@ -22,6 +22,19 @@
     };
   });
 
+  app.controller("ReviewController", function($scope){
+    // $scope.review = {}
+    // $scope.addReview = function(product){
+    //   product.reviews.push(this.review);
+    //   this.review = {};
+    // }
+    this.review = {};
+    this.addReview = function(product){
+      product.reviews.push(this.review);
+      this.review = {};
+    }
+  });
+
   var shirts = [
       { shirtName: 'Casual Friday',
           color: 'gray',
