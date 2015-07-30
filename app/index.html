@@ -32,17 +32,30 @@
               <form ng-submit='reviewCtrl.addReview(product)'>
                 <div ng-repeat="existingReview in product.reviews" >
                   <b>{{existingReview.rating}} Stars</b> {{existingReview.body}}
+                  <div>
+                    -- {{existingReview.author}}
+                  </div>
                 </div>
                 <div class="preview">
                   <h1>Preview</h1>
                   <b>{{reviewCtrl.review.rating}} Stars</b> {{reviewCtrl.review.body}}
+                  <div>
+                    -- {{reviewCtrl.review.author}}
+                  </div>
                 </div>
-                <select ng-model="reviewCtrl.review.rating">
-                  <option value="1">1 Star</option>
-                  <option value="2">2 Stars</option>
-                </select>
-                <textarea ng-model="reviewCtrl.review.body" rows="8" cols="40"> </textarea>
-                <input type="submit" value="Add Review">
+                <div>
+                  <select ng-model="reviewCtrl.review.rating">
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                  </select>
+                </div>
+                  <textarea ng-model="reviewCtrl.review.body" rows="8" cols="40" placeholder="Enter your great review"> </textarea>
+                <div>
+                  <input type="email" placeholder="bob@example.com" ng-model="reviewCtrl.review.author">
+                </div>
+                <div>
+                  <input type="submit" value="Add Review">
+                </div>
               </form>
           </div>
           </div>
