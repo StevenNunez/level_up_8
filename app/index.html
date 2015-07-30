@@ -8,6 +8,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/app.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class='container'>
   <div class="row">
@@ -29,7 +30,7 @@
           </div>
           <div ng-show='panel.isCurrentTab(3)'>
             <div ng-controller="ReviewController as reviewCtrl">
-              <form ng-submit='reviewCtrl.addReview(product)'>
+              <form name="reviewForm" ng-submit='reviewForm.$valid && reviewCtrl.addReview(product)' novalidate>
                 <div ng-repeat="existingReview in product.reviews" >
                   <b>{{existingReview.rating}} Stars</b> {{existingReview.body}}
                   <div>
@@ -44,18 +45,19 @@
                   </div>
                 </div>
                 <div>
-                  <select ng-model="reviewCtrl.review.rating">
+                  <select ng-model="reviewCtrl.review.rating" required>
                     <option value="1">1 Star</option>
                     <option value="2">2 Stars</option>
                   </select>
                 </div>
-                  <textarea ng-model="reviewCtrl.review.body" rows="8" cols="40" placeholder="Enter your great review"> </textarea>
+                  <textarea ng-model="reviewCtrl.review.body" rows="8" cols="40" placeholder="Enter your great review" required> </textarea>
                 <div>
-                  <input type="email" placeholder="bob@example.com" ng-model="reviewCtrl.review.author">
+                  <input type="email" placeholder="bob@example.com" ng-model="reviewCtrl.review.author" required>
                 </div>
                 <div>
                   <input type="submit" value="Add Review">
                 </div>
+                The current status of reviewForm is {{reviewForm.$valid}}
               </form>
           </div>
           </div>
