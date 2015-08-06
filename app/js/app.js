@@ -23,15 +23,31 @@
   });
 
   app.controller("ReviewController", function($scope){
-    // $scope.review = {}
-    // $scope.addReview = function(product){
-    //   product.reviews.push(this.review);
-    //   this.review = {};
-    // }
     this.review = {};
     this.addReview = function(product){
       product.reviews.push(this.review);
       this.review = {};
+    }
+  });
+
+  app.directive("shirtNavigation", function(){
+    return {
+      restrict: "E",
+      templateUrl: 'shirt-navigation.html'
+    }
+  });
+
+  app.directive("shirtDescription", function(){
+    return {
+      restrict: "E",
+      templateUrl: 'shirt-description.html'
+    }
+  });
+
+  app.directive("shirtPrice", function(){
+    return {
+      restrict: "E",
+      templateUrl: 'shirt-price.html'
     }
   });
 

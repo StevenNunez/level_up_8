@@ -16,17 +16,12 @@
       <div ng-repeat="product in store.products">
         <div class='col-xs-6' ng-controller='PanelController as panel'>
           <h1>{{product.shirtName}}</h1>
-          <ul class="nav nav-pills">
-            <li ng-click='panel.setTab(1)' ng-class='{active:panel.isCurrentTab(1)}'><a href>Details</a></li>
-            <li ng-click='panel.setTab(2)' ng-class='{active: panel.isCurrentTab(2)}'><a href>Price</a></li>
-            <li ng-click='panel.setTab(3)' ng-class='{active: panel.isCurrentTab(3)}'><a href>Ratings</a></li>
-          </ul>
+          <shirt-navigation></shirt-navigation>
           <div ng-show='panel.isCurrentTab(1)'>
-            <div>Color: {{product.color}}</div>
-            <div>Size: {{product.size}}</div>
+            <shirt-description></shirt-description>
           </div>
           <div ng-show='panel.isCurrentTab(2)'>
-            <div>Price: {{product.price | currency }}</div>
+            <shirt-price></shirt-price>
           </div>
           <div ng-show='panel.isCurrentTab(3)'>
             <div ng-controller="ReviewController as reviewCtrl">
